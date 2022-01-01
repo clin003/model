@@ -33,10 +33,10 @@ type FeedRichMsgImageModel struct {
 func (msg *FeedRichMsgModel) ToString() (res string) {
 	res = fmt.Sprintf("msgID:%s,msgType:%s,msgTime:%s\n", msg.MsgID, msg.Msgtype, msg.MsgTime)
 	if len(msg.Text.Content) > 0 {
-		res = fmt.Sprintf("%s\n%s", res, msg.Text.Content)
+		res = fmt.Sprintf("%s%s\n", res, msg.Text.Content)
 	}
 	if len(msg.Image.PicURL) > 0 {
-		res = fmt.Sprintf("%s\n%s", res, msg.Image.PicURL)
+		res = fmt.Sprintf("%s%s", res, msg.Image.PicURL)
 	}
 	// if len(msg.Link) > 0 {
 	// 	res = fmt.Sprintf("%s\n%s", res, msg.Link)

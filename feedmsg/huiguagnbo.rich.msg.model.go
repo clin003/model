@@ -43,3 +43,37 @@ func (msg *FeedRichMsgModel) ToString() (res string) {
 	// }
 	return
 }
+
+func NewFeedRichMsg(msgType, msgID, msgTime, textContent, textContentEx, textContentExPic, imagePicURL, imageFilePath string) FeedRichMsgModel {
+	return FeedRichMsgModel{
+		Msgtype: msgType,
+		MsgID:   msgID,
+		MsgTime: msgTime,
+		Text: FeedRichMsgTextModel{
+			Content:      textContent,
+			ContentEx:    textContentEx,
+			ContentExPic: textContentExPic,
+		},
+		Image: FeedRichMsgImageModel{
+			PicURL:   imagePicURL,
+			FilePath: imageFilePath,
+		},
+	}
+}
+func NewFeedRichMsgV2(msgType, msgID, msgTime, textContent, textContentEx, textContentExPic, imagePicURL, imageFilePath, link string) FeedRichMsgModel {
+	return FeedRichMsgModel{
+		Msgtype: msgType,
+		MsgID:   msgID,
+		MsgTime: msgTime,
+		Text: FeedRichMsgTextModel{
+			Content:      textContent,
+			ContentEx:    textContentEx,
+			ContentExPic: textContentExPic,
+		},
+		Image: FeedRichMsgImageModel{
+			PicURL:   imagePicURL,
+			FilePath: imageFilePath,
+		},
+		Link: link,
+	}
+}

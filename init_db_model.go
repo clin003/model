@@ -1,10 +1,10 @@
 package model
 
-// import (
-// 	"time"
+import (
+	"time"
 
-// 	"gorm.io/gorm"
-// )
+	"gorm.io/gorm"
+)
 
 // type BaseModel struct {
 // 	Id        uint64    `gorm:"column:id" json:"id"`
@@ -16,9 +16,27 @@ package model
 // 	gorm.Model
 // }
 
+type Model struct {
+	ID        uint64         `json:"id" gorm:"primarykey; autoIncrement"`
+	CreatedAt time.Time      `json:"-" form:"-"` //created_at
+	UpdatedAt time.Time      `json:"-" form:"-"` //updated_at
+	DeletedAt gorm.DeletedAt `json:"-" form:"-" gorm:"index"`
+}
+
+type GModel struct {
+	GID       uint64         `json:"gid" gorm:"primarykey; autoIncrement"`
+	CreatedAt time.Time      `json:"-" form:"-"`
+	UpdatedAt time.Time      `json:"-" form:"-"`
+	DeletedAt gorm.DeletedAt `json:"-" form:"-" gorm:"index"`
+}
+
 // type Model struct {
-// 	ID        uint64         `gorm:"primarykey;autoIncrement"	json:"id"`
-// 	CreatedAt time.Time      `json:"-"`
-// 	UpdatedAt time.Time      `json:"-"`
-// 	DeletedAt gorm.DeletedAt `gorm:"index"`
+// 	gorm.Model
+// }
+
+// type Model struct {
+// 	ID        uint `gorm:"primarykey"`
+// 	CreatedAt time.Time
+// 	UpdatedAt time.Time
+// 	DeletedAt DeletedAt `gorm:"index"`
 // }

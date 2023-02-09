@@ -1,6 +1,7 @@
 package feedmsg
 
 type PushMsgModel struct {
+	VideoURL      string `json:"videoURL"  form:"videoURL"`           //视频地址
 	PicURL        string `json:"picURL"  form:"picURL"`               //图片地址
 	Content       string `json:"content"  form:"content"`             //文本内容
 	ServerChannel string `json:"serverChannel"  form:"serverChannel"` //频道 token
